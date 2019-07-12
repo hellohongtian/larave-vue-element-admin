@@ -1,18 +1,19 @@
-# 下载vue-element-admin
+前言:其实vuejs主要用于前后端分离开发,但由于一般后台开发都由一人维护,且分两个项目部署麻烦又存在跨域的问题,遂萌生聚合起来的想法  
+### 下载vue-element-admin
 ```
  git clone https://github.com/PanJiaChen/vue-element-admin.git
 ```
-# 创建 Laravel5.8 项目
+### 创建 Laravel5.8 项目
 ```
 composer create-project --prefer-dist laravel/laravel laravel-element-admin "5.8.*"
 ```
-# 复制文件
+### 复制文件
 将 vue-element-admin 中整个 src 目录下的文件复制到 laravel 项目中的 resources/backend 目录中。  
-# 安装前端依赖
+### 安装前端依赖
 ```
 sudo npm install  --unsafe-perm
 ```
-# 配置路由映射
+### 配置路由映射
 ```
 在 routes/web.php 文件中添加如下路由：
 
@@ -21,8 +22,8 @@ Route::get('/admin', function () {
 });
 ```
 
-# 配置nginx http://laravelelement.test 指向项目public/目录
-# admin.blade.php
+### 配置nginx http://laravelelement.test 指向项目public/目录
+### admin.blade.php
 ```
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
@@ -41,7 +42,7 @@ Route::get('/admin', function () {
 </body>
 </html>
 ```
-# webpack.mix.js
+### webpack.mix.js
 ```
 const mix = require('laravel-mix');
 
@@ -93,7 +94,7 @@ if (mix.inProduction()) {
   mix.version();
 }
 ```
-# package.json
+### package.json
 ```
 {
   "name": "vue-element-admin",
@@ -211,7 +212,7 @@ if (mix.inProduction()) {
 
 ```
 
-# 执行npm run dev (以下表示成功)
+### 执行npm run dev (以下表示成功)
 ```
  DONE  Compiled successfully in 24931ms                                                                                                                                                         5:45:51 PM
 
@@ -234,7 +235,7 @@ fonts/vendor/element-ui/lib/theme-chalk/element-icons.woff?2fad952a20fbbcfd1bf2e
 
 
 
-# 可能遇见的问题
+### 可能遇见的问题
 1. ERROR in ./resources/backend/router/index.js
 ```
 ERROR in ./resources/backend/router/index.js
@@ -359,10 +360,10 @@ mix.webpackConfig({
 });
 ```
 
-# 到此可以打开 http://laravelelement.test/admin 会出现登录页
+### 到此可以打开 http://laravelelement.test/admin 会出现登录页
 > 登录后会出现404,接着继续开始配置
 
-# /routes/web.php配置如下,倒腾(调试)了好久才知道正确的配置
+### /routes/web.php配置如下,倒腾(调试)了好久才知道正确的配置
 
 ```
 Route::get('/admin', function () {
@@ -420,6 +421,6 @@ Route::get('/user/logout', function () {
     ];
 });
 ```
-# 再登录即可登录进入主页
+### 再登录即可登录进入主页
 
-# 总结:心累,一路报错才搞下来!
+### 总结:心累,一路报错才搞下来!
