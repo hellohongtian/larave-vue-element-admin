@@ -11,10 +11,10 @@
         <error-log class="errLog-container right-menu-item hover-effect" />
 
         <screenfull id="screenfull" class="right-menu-item hover-effect" />
-
-        <el-tooltip content="Global Size" effect="dark" placement="bottom">
-          <size-select id="size-select" class="right-menu-item hover-effect" />
-        </el-tooltip>
+        <!--全局字体大小-->
+        <!--<el-tooltip content="Global Size" effect="dark" placement="bottom">-->
+          <!--<size-select id="size-select" class="right-menu-item hover-effect" />-->
+        <!--</el-tooltip>-->
 
       </template>
 
