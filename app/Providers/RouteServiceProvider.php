@@ -35,6 +35,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function map()
     {
+        $this->mapActionRoutes();
         $this->mapApiRoutes();
 
         $this->mapWebRoutes();
@@ -51,9 +52,12 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapWebRoutes()
     {
-        Route::middleware('web')
-             ->namespace($this->namespace)
-             ->group(base_path('routes/web.php'));
+        Route::group([
+            'middleware' => array('web','ResponseCallBack'),
+            'namespace' => $this->namespace,
+        ], function ($router) {
+            require base_path('routes/web.php');
+        });
     }
 
     /**
@@ -65,9 +69,22 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapApiRoutes()
     {
-        Route::prefix('api')
-             ->middleware('api')
-             ->namespace($this->namespace)
-             ->group(base_path('routes/api.php'));
+        Route::group([
+            'middleware' => array('api','ResponseCallBack'),
+            'namespace' => $this->namespace,
+            'prefix' => 'api',
+        ], function ($router) {
+            require base_path('routes/api.php');
+        });
+    }
+
+    protected function mapActionRoutes()
+    {
+        Route::group([
+            'middleware' => array('api','ResponseCallBack'),
+            'prefix' => 'api',
+        ], function ($router) {
+            require base_path('routes/action.php');
+        });
     }
 }

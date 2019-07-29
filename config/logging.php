@@ -16,7 +16,7 @@ return [
     |
     */
 
-    'default' => env('LOG_CHANNEL', 'stack'),
+    'default' => env('LOG_CHANNEL', 'single'),
 
     /*
     |--------------------------------------------------------------------------
@@ -37,7 +37,6 @@ return [
         'stack' => [
             'driver' => 'stack',
             'channels' => ['daily'],
-            'ignore_exceptions' => false,
         ],
 
         'single' => [

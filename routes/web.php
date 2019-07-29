@@ -64,3 +64,4 @@ Route::get('/user/logout', function () {
         'code'=>20000
     ];
 });
+Route::get('/index/indexmain', "'IndexController@indexmain'");
