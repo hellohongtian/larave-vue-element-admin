@@ -35,7 +35,7 @@
         "jquery": "^3.2",
         "laravel-mix": "^4.0.7",
         "lint-staged": "8.1.5",
-        "lodash": "^4.17.5",
+        "lodash": "^4.17.21",
         "mockjs": "1.0.1-beta3",
         "node-sass": "^4.9.0",
         "plop": "2.3.0",
